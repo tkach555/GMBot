@@ -1,0 +1,16 @@
+<config>
+<!--    token of discord bot -->
+    <token></token>
+<!--    Id of discord bot -->
+    <botID></botID>
+<!--    name of discord bot -->
+    <botname>testBot</botname>
+<!--    channel ID where bot must write -->
+    <channelID></channelID>
+<!--    the frequency of the request in seconds -->
+    <period>3600</period>
+<!--    how much recent news to check -->
+    <newscount>4</newscount>
+<!--    do I need to output messages to the console (0 - No; 1 - Yes) -->
+    <consoleout>1</consoleout>
+</config>

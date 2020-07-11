@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<targets>
+    <target id='1' name=''>
+        <mainPath>https://playisgame.com</mainPath>
+        <pathURL>https://playisgame.com/khalyava</pathURL>
+        <findElement seq='1' quant='all' elemType='container'>
+            <tagName>div</tagName>
+            <attributeType>class</attributeType>
+            <attributeValue>teaser-item</attributeValue>
+            <findElement seq='1' quant='one' elemType='container'>
+                <tagName>h2</tagName>
+                <attributeType>class</attributeType>
+                <attributeValue>pos-title</attributeValue>
+                <findElement seq='1' quant='one' elemType='value'>
+                    <tagName>a</tagName>
+                    <attributeType></attributeType>
+                    <attributeValue></attributeValue>
+                </findElement>
+            </findElement>
+        </findElement>
+        <findElement seq='2' quant='one' elemType=''>
+            <tagName>div</tagName>
+            <attributeType>class</attributeType>
+            <attributeValue></attributeValue>
+        </findElement>
+    </target>
+</targets>
