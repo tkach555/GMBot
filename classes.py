@@ -23,10 +23,11 @@ class newsContent:
     #     f.write(self.msPath + self.content['href'])
     #     f.close()
 
-    def writeThisLinksToFile(self, links):
+    def writeThisLinksToFile(self, links):	
         f = open(self.fileName, 'w')
         for line in links:
             f.write(line + '\n')
+            # print(line)
         f.close()
         
     # def getLastLink(self):

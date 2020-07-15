@@ -13,7 +13,6 @@ from classes import newsContent
 import datetime
 #___END IMPORTS___
 
-
 HEADERS = {'_user': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
 
 configRoot = ET.parse('config.xml').getroot()       # getting the root of the configuration file
@@ -65,15 +64,16 @@ async def on_ready():
         print(datetime.datetime.now().strftime("%d-%m-%Y %H:%M"),' Check news...')
     parse()
     while(True):
+        newListLinks = []
         oldLinks = hd.getAllLinksFromFile()
         for link in hd.content:
+            newListLinks.append(link['href'])
             if link['href'] not in oldLinks:
-                if oldLinks:
-                    oldLinks.insert(0, link['href'])
-                    if len(oldLinks) > newsCount:
-                        oldLinks.pop()
-                else:
-                    oldLinks.append(link['href'])
+                
+                # if len(oldLinks) > newsCount:
+                    # oldLinks.pop()
+                # else:
+                    # oldLinks.append(link['href'])
 
                 emb = discord.Embed(title = 'Новости игровых распродаж и халявы.', colour = discord.Color.green())
                 emb.set_author(name = bot.user.name, icon_url = bot.user.avatar_url)
@@ -81,8 +81,10 @@ async def on_ready():
                 emb.set_image(url = link['image'])
 
                 await channel.send(embed = emb)
+                # for ol in oldLinks:
+                    # print(ol)
 
-        hd.writeThisLinksToFile(oldLinks)
+        hd.writeThisLinksToFile(newListLinks)
         time.sleep(checkPeriod)
         if _CONSOLE_OUTPUT:
             print(datetime.datetime.now().strftime("%d-%m-%Y %H:%M"),' Check news...')
@@ -92,6 +94,7 @@ async def on_ready():
 
 
 #___MAIN START___
+print("start")
 if (getDataFromSite()):
     if _CONSOLE_OUTPUT:
         print('Connection with site - OK.')
